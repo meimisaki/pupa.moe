@@ -278,10 +278,7 @@ var uuid = require('./lib/uuid');
 var uploadPath = path.join(__dirname, 'upload');
 
 fs.mkdir(uploadPath, function (err) {
-	if (err && err.errno != 47) { // 47: EXIST
-		console.error(err);
-		responder.close();
-	}
+	// ignore error
 	responder.post('upload', function (req, res, next) {
 		var obj = {}, syncher = new Syncher();
 		each(req.form.files, function (val, key) {

@@ -29,6 +29,10 @@ a {
 	text-decoration: none;
 }
 
+img {
+	border: none;
+}
+
 .selection(@bg-color, @color) when (iscolor(@bg-color)) and (iscolor(@color)) {
 	::-moz-selection {
 		background-color: @bg-color;

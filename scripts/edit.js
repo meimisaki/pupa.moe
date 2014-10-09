@@ -25,11 +25,12 @@ $(document).ready(function () {
 	}
 
 	function addTag(text) {
+		text = text.trim();
+		if (!text.length) return ;
 		var elem = $('<span class="tag"><span></span></span>');
-		elem.find('span').text(text.trim());
+		elem.find('span').text(text);
 		var close = $('<a href="javascript:;">&#215;</a>').click(removeTag);
-		elem.append(close);
-		elem.insertBefore(tag);
+		elem.append(close).insertBefore(tag);
 	}
 
 	$('.edit #post').click(function () {
