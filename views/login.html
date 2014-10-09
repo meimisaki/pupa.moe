@@ -1,0 +1,38 @@
+<script type="text/javascript" src="/scripts/md5.js"></script>
+<script type="text/javascript" src="/scripts/login.js"></script>
+<link rel="stylesheet" type="text/css" href="/styles/login.less" />
+<div class="row">
+	<div class="col-4 left-4 login">
+		<div class="row">
+			<div class="col-8 left-2">
+				<div class="avatar">
+					<div class="content">
+						<a href="/author" rel="author" title="avatar">
+							<img src="<%= req.user.avatar %>" />
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-10 left-1">
+				<form class="row" action="/login" method="POST">
+					<input type="hidden" name="referer" value="<%= req.headers.referer %>" />
+					<div class="col-12 password">
+						<input class="content" type="password" name="password" placeholder="PASSWORD" autofocus="autofocus" />
+					</div>
+					<div class="col-12 submit">
+						<input class="content button" type="submit" value="LOGIN" />
+					</div>
+					<div class="col-12 remember">
+						<input type="checkbox" id="remember" name="remember" value="1" />
+						<label for="remember">REMEMBER ME</label>
+					</div>
+					<div class="col-12 back">
+						<a href="/" rel="home">&larr; BACK TO <%= config.title %></a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

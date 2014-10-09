@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+@import "main.less";
+
+.flip-container {
+	.vendorize(perspective, 1000);
+	.vendorize(transform, perspective(1000px), -moz- -ms-);
+	.vendorize(transform-style, preserve-3d, -moz- -ms-);
+	.flipper {
+		.vendorize(transition, 0.5s);
+		.vendorize(transform-style, preserve-3d);
+		-moz-transform: perspective(1000px);
+		position: relative;
+		.front, .back {
+			.vendorize(backface-visibility, hidden);
+			.vendorize(transition, 0.5s);
+			.vendorize(transform, rotateY(0deg));
+			.vendorize(transform-style, preserve-3d);
+		}
+		.front {
+			.vendorize(transform, rotateY(0deg), -webkit- -ms-);
+			z-index: 2;
+		}
+		.back {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			.vendorize(transform, rotateY(-180deg));
+		}
+	}
+	&:hover, &.hover {
+		.flipper {
+			.vendorize(transform, rotateY(180deg));
+			-ms-filter: "FlipH";
+			filter: FlipH;
+			/*
+			.ie & .front {
+				.vendorize(transform, rotateY(180deg));
+			}
+			.ie & .back {
+				.vendorize(transform, rotateY(0deg));
+			}
+			*/
+		}
+	}
+}

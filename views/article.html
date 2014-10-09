@@ -1,0 +1,41 @@
+<% if (renderOnce("article.less")) { %>
+	<link rel="stylesheet" type="text/css" href="/styles/article.less" />
+<% } %>
+<% if (renderOnce("highlight.less")) { %>
+	<link rel="stylesheet" type="text/css" href="/styles/highlight.default.less" />
+<% } %>
+<div class="row article">
+	<div class="title">
+		<a href="/article/<%= article.id %>">
+			<%= article.title %>
+		</a>
+	</div>
+	<div class="info-container">
+		<div class="col-6 category">
+			<a href="/category/<%= article.category.id %>" rel="category tag" title="<%= article.category.name %>">
+				<%= article.category.title %>
+			</a>
+		</div>
+		<div class="col-6">
+			<span class="pull-right">
+				&bullet; <%= article.created_time.slice(0, 10) %>
+			</span>
+		</div>
+	</div>
+	<div class="col-10 left-1">
+		<div class="divider"></div>
+	</div>
+	<div class="col-12 text-container">
+		<%@ article.text %>
+	</div>
+	<% var tags = article.tags.split('\n'); %>
+	<% if (tags.length) { %>
+		<div class="col-12">
+			<% for (var key in tags) { %>
+				<% if (tags[key]) { %>
+					<a class="tag button" href="/?keyword=<%= encodeURIComponent(tags[key]) %>"><%= tags[key] %></a>
+				<% } %>
+			<% } %>
+		</div>
+	<% } %>
+</div>

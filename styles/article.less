@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+@import "main.less";
+@import "tag.less";
+
+.article {
+	color: @dark-gray;
+	padding: 15px 0;
+	.title {
+		font-size: @font-lg;
+		text-align: center;
+	}
+	.info-container {
+		font-size: @font-sm;
+		padding: 0 15px;
+	}
+	.title, .category {
+		a {
+			.color(@dark-gray);
+			.transition(border-color 0.2s linear);
+		}
+	}
+	& + .article {
+		border-top: @border-sm solid #ddd;
+	}
+	.divider {
+		border-width: @border-sm;
+		margin: 10px;
+	}
+	.text-container {
+		padding: 0 5px;
+	}
+	.tag {
+		margin: 10px 0 0 5px;
+	}
+}

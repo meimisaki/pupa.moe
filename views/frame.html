@@ -1,0 +1,103 @@
+<script type="text/javascript" src="/scripts/frame.js"></script>
+<link rel="stylesheet" type="text/css" href="/styles/frame.less" />
+<div class="row header">
+	<div class="topbar">
+		<% if (req.verified) { %>
+			<span class="item">
+				<a href="javascript:;" rel="logout" id="logout">LOGOUT</a>
+			</span>
+			<span class="item">
+				<a href="/settings" rel="settings">SETTINGS</a>
+			</span>
+			<span class="item">
+				<a href="/post">POST</a>
+			</span>
+		<% } else { %>
+			<span class="item">
+				<a href="/login" rel="login">LOGIN</a>
+			</span>
+		<% } %>
+	</div>
+	<div class="side">
+		<div class="col-8 left-2 avatar-container">
+			<div class="avatar">
+				<div class="content">
+					<a href="/author" rel="author" title="avatar">
+						<img src="<%= req.user.avatar %>" />
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-12 info-container">
+			<div class="name">
+				<a href="/author" rel="author"><%= req.user.name %></a>
+			</div>
+			<div class="email">
+				<a href="mailto:<%= req.user.email %>" rel="author"><%= req.user.email %></a>
+			</div>
+		</div>
+	</div>
+	<div class="main">
+		<div class="row hidden-sm">
+			<div class="col-1">
+				<div class="top-4"></div>
+			</div>
+		</div>
+		<div class="title visible-sm">
+			<a href="/" rel="home"><%= config.title %></a>
+		</div>
+		<div class="signature visible-sm">
+			<%= config.signature %>
+		</div>
+		<% for (var key in links) { %>
+			<a href="<%= links[key].url %>" rel="external" target="_blank" title="<%= links[key].name %>" class="link">
+				<img src="<%= links[key].icon %>" />
+			</a>
+		<% } %>
+		<div class="title hidden-sm">
+			<a href="/" rel="home"><%= config.title %></a>
+		</div>
+		<div class="signature hidden-sm">
+			<%= config.signature %>
+		</div>
+	</div>
+	<div class="main search-container">
+		<div class="row">
+			<form class="col-4 search" action="/" method="GET">
+				<input class="content dropdown autocomplete" name="keyword" type="text" value="<%= req.parsedUrl.parsedQuery.keyword %>" placeholder="SEARCH" autocomplete="off" spellcheck="false" />
+				<ul class="dropdown-menu"></ul>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="side hidden-sm">
+		<div class="divider"></div>
+	</div>
+	<div class="main">
+		<div class="divider"></div>
+	</div>
+</div>
+<div class="row body">
+	<div class="side">
+		<div class="row">
+			<% for (var key in categories) { %>
+				<a href="/category/<%= categories[key].id %>" rel="category tag" title="<%= categories[key].name %>" class="col-12 item">
+					<img src="<%= categories[key].icon %>" />
+					<span class="text"><%= categories[key].title %></span>
+				</a>
+			<% } %>
+		</div>
+		<div class="divider"></div>
+	</div>
+	<div class="main">
+		<%& res.target %>
+	</div>
+</div>
+<div class="footer">
+	<div class="divider"></div>
+	<div class="copy">
+		&copy; <%= new Date().getFullYear() %> <%= req.user.name %>
+		Powered by <a href="http://nodejs.org" rel="external" target="_blank">Node.js</a>
+	</div>
+</div>

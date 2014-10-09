@@ -1,0 +1,32 @@
+<script type="text/javascript" src="/scripts/edit.js"></script>
+<link rel="stylesheet" type="text/css" href="/styles/edit.less" />
+<div class="edit">
+	<div class="edit-header">
+		<%= this.article ? "EDIT" : "CREATE" %> ARTICLE
+	</div>
+	<div class="row info">
+		<div class="col-6">
+			<input type="text" placeholder="TITLE" value="<%= this.article && article.title %>" />
+		</div>
+		<div class="col-6">
+			<% var out = []; %>
+			<% for (var key in categories) out.push(categories[key].id); %>
+			<input class="button dropdown toggle" type="button" value="<%= this.article && this.article.category.title || 'CATEGORY' %>" data-id-array="<%= JSON.stringify(out) %>" data-id="<%= this.article && article.category.id %>" />
+			<ul class="dropdown-menu">
+				<% for (var key in categories) { %>
+					<li><%= categories[key].title %></li>
+				<% } %>
+			</ul>
+		</div>
+	</div>
+	<%& "editor" | {content: this.article && article.text} %>
+	<div class="row tag-manip" data-tags="<%= this.article && JSON.stringify(article.tags.split('\n')) %>">
+		<div class="col-12">
+			<input type="text" placeholder="TAG" />
+		</div>
+	</div>
+	<a class="action" href="javascript:;" role="button" id="post">
+		&#10003;
+		<span><%= this.article ? "SAVE" : "POST" %></span>
+	</a>
+</div>

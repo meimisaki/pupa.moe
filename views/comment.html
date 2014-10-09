@@ -1,0 +1,19 @@
+<div class="row comment" data-floor="<%= floor %>">
+	<div class="col-2">
+		<div class="row">
+			<div class="col-6 left-3 avatar-container">
+				<div class="avatar">
+					<div class="content">
+						<img src="<%@ req.parsedUrl.protocol == 'https:' ? 'https://secure' : 'http://www' %>.gravatar.com/avatar/<%= comment.md5 %>?d=404" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-10">
+		<span class="name"><%= comment.name %></span>
+		<span class="pull-right"><%= floor %>F &bullet; <%= comment.created_time.slice(0, 10) %></span>
+		<div class="text-container"><%@ comment.text %></div>
+		<a class="action reply" href="javascript:;" role="button">&#8617; <span>REPLY</span></a>
+	</div>
+</div>

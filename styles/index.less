@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+@import "main.less";
+
+.page {
+	a {
+		max-width: 50px;
+		.opacity(0.75);
+		&:hover, &:active {
+			.opacity(1);
+			.transform(scale(@magnification, @magnification));
+		}
+		.transition(opacity 0.2s linear);
+		.transition-pr(transform 0.2s linear);
+	}
+}

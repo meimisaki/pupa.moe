@@ -1,0 +1,52 @@
+<% if (this.article) { %>
+	<script type="text/javascript" src="/scripts/md5.js"></script>
+	<script type="text/javascript" src="/scripts/inner.js"></script>
+	<link rel="stylesheet" type="text/css" href="/styles/inner.less" />
+	<%& "article" %>
+	<% if (req.verified) { %>
+		<div class="row article-manip">
+			<div class="col-12">
+				<a href="javascript:;" class="remove pull-right">&#215; DELETE</a>
+				<a href="/<%= req.pathname %>/edit" class="pull-right">&#9998; EDIT</a>
+			</div>
+		</div>
+	<% } %>
+	<div class="row divider">
+		<div class="col-10 left-1">
+			<div class="comment-header">COMMENTS</div>
+			<% for (var key in article.comment_list) { %>
+				<%& "comment" | {floor: parseInt(key) + 1, comment: article.comment_list[key]} %>
+			<% } %>
+			<div class="row comment">
+				<div class="col-2">
+					<div class="row">
+						<div class="col-6 left-3 avatar-container">
+							<div class="avatar">
+								<div class="content">
+									<img src="/images/default_avatar.png" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-10">
+					<div class="row info">
+						<div class="col-6 nickname">
+							<input type="text" placeholder="ANONYMOUS" />
+						</div>
+						<div class="col-6 email">
+							<input type="text" placeholder="ADDRESS@HOSTNAME" />
+						</div>
+					</div>
+					<%& "editor" %>
+					<a class="action" href="javascript:;" role="button" id="post">
+						&#10003;
+						<span>POST</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+<% } else { %>
+	<%& "404" %>
+<% } %>

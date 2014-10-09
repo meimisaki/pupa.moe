@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+@import "main.less";
+
+.tag {
+	font-size: @font-sm;
+	display: inline-block;
+	padding: 0 12px;
+	line-height: 20 / 14;
+	border: @border-sm solid #ddd;
+	border-radius: @infinity;
+	&:hover, &:active {
+		border-color: #ddd - @darkness;
+	}
+	@media (max-width: (@width-sm - 1)) {
+		& {
+			font-size: @font-md;
+		}
+	}
+}

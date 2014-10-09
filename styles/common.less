@@ -1,0 +1,91 @@
+@charset "UTF-8";
+
+@import "main.less";
+@import "input.less";
+@import "dropdown.less";
+
+.visible-lg, .hidden-sm {
+	@media (max-width: (@width-md - 1)) {
+		display: none;
+	}
+}
+.hidden-lg, .visible-sm {
+	@media (min-width: @width-md) {
+		display: none;
+	}
+}
+
+html {
+	font-size: 0.6rem;
+	@media (min-width: @width-sm) {
+		font-size: 0.8rem;
+	}
+	@media (min-width: @width-md) {
+		font-size: 1rem;
+	}
+}
+
+a {
+	text-decoration: none;
+}
+
+.selection(@bg-color, @color) when (iscolor(@bg-color)) and (iscolor(@color)) {
+	::-moz-selection {
+		background-color: @bg-color;
+		color: @color;
+	}
+	::selection {
+		background-color: @bg-color;
+		color: @color;
+	}
+}
+.selection(@light-gray, #fff);
+
+.row { .row;}
+.generate-grids(@width) when (@width > 0) {
+	.col-@{width} { .col(@width);}
+	.top-@{width} { .top(@width);}
+	.right-@{width} { .right(@width);}
+	.bottom-@{width} { .bottom(@width);}
+	.left-@{width} { .left(@width);}
+	.generate-grids((@width - 1));
+}
+.generate-grids(12);
+
+.pull-left {
+	float: left !important;
+}
+.pull-right {
+	float: right !important;
+}
+
+body {
+	margin: 0;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+
+.container {
+	max-width: @width-lg;
+	padding: 0 100px;
+	margin-left: auto;
+	margin-right: auto;
+	@media (max-width: (@width-lg - 1)) {
+		padding: 0 50px;
+	}
+	@media (max-width: (@width-md - 1)) {
+		padding: 0 20px;
+	}
+}
+
+.avatar {
+	.avatar;
+}
+
+.divider {
+	.divider;
+}
+
+.button {
+	.button;
+}

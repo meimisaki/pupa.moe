@@ -1,0 +1,95 @@
+<script type="text/javascript" src="/scripts/md5.js"></script>
+<script type="text/javascript" src="/scripts/settings.js"></script>
+<link rel="stylesheet" type="text/css" href="/styles/settings.less" />
+<div class="settings">
+	<div class="title">LINK</div>
+	<div class="row link">
+		<% for (var key in links) { %>
+			<div class="col-4 item-container">
+				<div class="flip-container">
+					<div class="flipper">
+						<div class="front">
+							<div class="item">
+								<div class="row">
+									<div class="col-4 left-4 icon">
+										<div class="content">
+											<img src="<%= links[key].icon %>" title="<%= links[key].name %>" />
+										</div>
+									</div>
+								</div>
+								<div class="name"><%= links[key].name %></div>
+							</div>
+						</div>
+						<div class="back">
+							<div class="item">
+								<div class="row">
+									<div class="col-6 half">
+										<div class="input-container">
+											<input class="content" type="text" value="<%= links[key].name %>" placeholder="NAME" />
+										</div>
+									</div>
+									<div class="col-6 half">
+										<div class="input-container">
+											<input class="content button" type="button" value="UPLOAD ICON" />
+										</div>
+									</div>
+								</div>
+								<div class="input-container">
+									<input class="content" type="text" value="<%= links[key].url %>" placeholder="URL" />
+								</div>
+								<div class="input-container">
+									<input class="content button" type="button" value="SUBMIT" />
+								</div>
+								<a href="javascript:;" class="remove" data-id="<%= links[key].id %>">&#215;</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		<% } %>
+	</div>
+	<div class="title">CATEGORY</div>
+	<div class="row category">
+		<% for (var key in categories) { %>
+			<div class="col-4 item-container">
+				<div class="item">
+					<div class="name"><%= categories[key].name %></div>
+					<div class="title"><%= categories[key].title %></div>
+				</div>
+			</div>
+		<% } %>
+	</div>
+	<div class="title">ADMIN</div>
+	<div class="row admin">
+		<div class="col-4 item-container">
+			<div class="input-container">
+				<input class="content name" type="text" placeholder="NAME" value="<%= req.user.name %>" />
+			</div>
+		</div>
+		<div class="col-4 item-container">
+			<div class="input-container">
+				<input class="content email" type="text" placeholder="EMAIL" value="<%= req.user.email %>" />
+			</div>
+		</div>
+		<div class="col-4 item-container">
+			<div class="input-container">
+				<input class="button content" type="button" value="UPLOAD AVATAR" data-src="<%= req.user.avatar %>" />
+			</div>
+		</div>
+		<div class="col-4 item-container">
+			<div class="input-container">
+				<input class="content old-password" type="password" placeholder="OLD PASSWORD" />
+			</div>
+		</div>
+		<div class="col-4 item-container">
+			<div class="input-container">
+				<input class="content new-password" type="password" placeholder="NEW PASSWORD" />
+			</div>
+		</div>
+		<div class="col-4 item-container">
+			<div class="input-container">
+				<input class="button content" type="submit" value="SUBMIT" />
+			</div>
+		</div>
+	</div>
+</div>

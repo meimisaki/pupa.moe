@@ -1,0 +1,30 @@
+{
+  "name": "pupa.moe",
+  "version": "0.1.0",
+  "description": "A light blog engine",
+  "main": "index.js",
+  "dependencies": {
+    "exit": "*",
+    "mime": "*",
+    "formidable": "*",
+    "less": "*",
+    "redis": "*",
+    "highlight.js": "*",
+    "google-caja": "*"
+  },
+  "scripts": {
+    "prepublish": "bower install --allow-root",
+    "test": "node test",
+    "start": "nohup node index.js &",
+    "stop": "killall node"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "author": "SoraKasugano <meimisaki@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/meimisaki/pupa.moe.git"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,17 @@
+# config
+lib/config.js
+
+# local files
+.DS_Store
+upload
+
+# temporary files
+*.log
+*.tmp
+
+# dependencies
+/node_modules
+/bower_components
+
+# nohup output
+nohup.out

@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+@import "main.less";
+
+ul.dropdown-menu {
+	display: none;
+	position: absolute;
+	background-color: #fff;
+	list-style: none;
+	z-index: 1000;
+	padding: 6px 0;
+	margin: 6px 0;
+	border: @border-sm solid #ddd;
+	border-radius: 4px;
+	text-align: left;
+	.box-shadow;
+	.transition(box-shadow 0.2s linear);
+	li {
+		padding: 0 12px;
+		line-height: 20 / 14;
+		cursor: pointer;
+	}
+	li:hover, li:active, li.active {
+		background-color: #eee;
+	}
+	&.active {
+		display: block;
+	}
+}

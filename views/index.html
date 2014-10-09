@@ -1,0 +1,18 @@
+<link rel="stylesheet" type="text/css" href="/styles/index.less" />
+<% for (var key in articles) { %>
+	<%& "article" | {article: articles[key]} %>
+<% } %>
+<% if (hasPrev || hasNext) { %>
+	<div class="row page">
+		<% if (hasPrev) { %>
+			<a href="/?page=<%= page + 1 %>" rel="prev" title="prev" class="col-1 left-1 pull-left">
+				<img src="/images/icons/left-arrow.svg" />
+			</a>
+		<% } %>
+		<% if (hasNext) { %>
+			<a href="/?page=<%= page - 1 %>" rel="next" title="next" class="col-1 right-1 pull-right">
+				<img src="/images/icons/right-arrow.svg" />
+			</a>
+		<% } %>
+	</div>
+<% } %>

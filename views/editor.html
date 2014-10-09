@@ -1,0 +1,36 @@
+<% if (renderOnce("editor.js")) { %>
+	<script type="text/javascript" src="/scripts/editor.js"></script>
+<% } %>
+<% if (renderOnce("editor.less")) { %>
+	<link rel="stylesheet" type="text/css" href="/styles/editor.less" />
+<% } %>
+<% if (renderOnce("highlight.less")) { %>
+	<link rel="stylesheet" type="text/css" href="/styles/highlight.default.less" />
+<% } %>
+<div class="editor-container">
+	<div class="editor text-container" contenteditable="true" spellcheck="false">
+		<%@ this.content %>
+	</div>
+	<div class="toolbar">
+		<a href="javascript:;" role="button" class="bold" title="bold">B</a>
+		<a href="javascript:;" role="button" class="italic" title="italic">I</a>
+		<a href="javascript:;" role="button" class="underline" title="underline">U</a>
+		<a href="javascript:;" role="button" class="strike-through" title="strike through">S</a>
+		<a href="javascript:;" role="button" class="remove-format" title="remove format">R</a>
+		<a href="javascript:;" role="button" class="insert-ordered-list" title="insert ordered list">1.</a>
+		<a href="javascript:;" role="button" class="insert-unordered-list" title="insert unordered list">&bullet;</a>
+		<a href="javascript:;" role="button" class="highlight" title="highlight">H</a>
+		<a href="javascript:;" role="button" class="justify-left" title="justify left">
+			<img src="/images/icons/justify-left.svg" />
+		</a>
+		<a href="javascript:;" role="button" class="justify-center" title="justify center">
+			<img src="/images/icons/justify-center.svg" />
+		</a>
+		<a href="javascript:;" role="button" class="justify-right" title="justify right">
+			<img src="/images/icons/justify-right.svg" />
+		</a>
+		<a href="javascript:;" role="button" class="justify-full" title="justify full">
+			<img src="/images/icons/justify-full.svg" />
+		</a>
+	</div>
+</div>

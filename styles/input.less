@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+@import "main.less";
+
+input, button, [contenteditable] {
+	outline: 0;
+	outline: none;
+	.vendorize(appearance, none, -webkit- -moz-);
+	margin: 0;
+}
+input[type="text"], input[type="password"], input[type="button"], input[type="submit"], button {
+	border: @border-md solid #ddd;
+	border-radius: @infinity;
+	padding: 0 15px;
+	box-sizing: border-box;
+	width: 100%;
+	min-height: 20px;
+	&:hover, &:active, &:focus {
+		border-color: #ddd - @darkness;
+	}
+	.transition(border-color 0.2s linear);
+}
+input[type="button"], input[type="submit"], button {
+	cursor: pointer;
+}
+@-moz-document url-prefix() {
+	input.content {
+		height: 100%;
+	}
+}

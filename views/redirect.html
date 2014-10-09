@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="refresh" content="<%= res.delay %>; url=<%= res.url %>" />
+	<script type="text/javascript">
+	setTimeout(function () {
+		window.location.href = <%@ JSON.stringify(res.url) %>;
+	}, <%= res.delay %> * 1000);
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div>
+			refresh in <%= res.delay %> seconds
+		</div>
+		<div>
+			<a href="<%= res.url %>">click here</a>
+		</div>
+	</div>
+</body>
+</html>

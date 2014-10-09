@@ -1,0 +1,86 @@
+@charset "UTF-8";
+
+@import "main.less";
+
+.login {
+	.avatar {
+		margin-top: 20px;
+	}
+	form {
+		margin-bottom: 20px;
+		div {
+			margin-top: 15px;
+		}
+		.password, .submit {
+			.aspect(6, 1);
+			input {
+				font-size: @font-md;
+				text-align: center;
+				@media (max-width: (@width-md-plus - 1)) and (min-width: @width-md) {
+					font-size: @font-sm;
+				}
+			}
+		}
+		.remember {
+			@box-size-lg: 18px;
+			@box-size-sm: 14px;
+			input {
+				float: left;
+				width: @box-size-lg;
+				height: @box-size-lg;
+				border: @border-sm solid #ddd;
+				&:hover, &:active, &:focus {
+					border-color: #ddd - @darkness;
+				}
+				.transition(border-color 0.2s linear);
+				&:checked:before {
+					color: @dark-gray;
+					font-size: @font-sm;
+					line-height: @box-size-lg;
+					content: "\2713";
+				}
+			}
+			label {
+				float: left;
+				margin-left: 6px;
+				font-size: @font-sm;
+				line-height: @box-size-lg;
+				vertical-align: middle;
+				.color(@dark-gray);
+				cursor: pointer;
+			}
+			@media (max-width: (@width-md - 1)) {
+				input {
+					width: @box-size-sm;
+					height: @box-size-sm;
+					&:checked:before {
+						line-height: @box-size-sm;
+					}
+				}
+				label {
+					line-height: @box-size-sm;
+				}
+			}
+			@media (max-width: (@width-sm - 1)) {
+				input:checked:before, label {
+					font-size: @font-md;
+				}
+			}
+		}
+		.back a {
+			.color(@gray);
+			font-size: @font-sm;
+			@media (max-width: (@width-sm - 1)) {
+				font-size: @font-md;
+			}
+		}
+	}
+	@media (max-width: (@width-md - 1)) {
+		.col(6);
+		.left(3);
+	}
+	@media (max-width: (@width-sm - 1)) {
+		.col(8);
+		.left(2);
+	}
+}

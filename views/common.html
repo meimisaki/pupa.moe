@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!--[if IE]><html class="ie"><![endif]-->
+<!--[if !IE]><!--><html><!--<![endif]-->
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+	<meta name="author" content="<%= req.user.name %> <%= req.user.email %>" />
+	<title><%= config.title %></title>
+	<link rel="stylesheet" type="text/css" href="/styles/common.less" />
+	<script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="/scripts/main.js"></script>
+</head>
+<body>
+	<div class="container">
+		<% if (res.framed) { %>
+			<%& "frame" %>
+		<% } else { %>
+			<%& res.target %>
+		<% } %>
+	</div>
+	<% if (config.ga == "true" && !res.gaDisabled) { %>
+		<script type="text/javascript"><%= config.script %></script>
+	<% } %>
+</body>
+</html>
