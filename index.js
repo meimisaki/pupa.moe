@@ -27,7 +27,10 @@ responder.use(require('./lib/protector')(function (err, req, res, next) {
 	responder.close();
 }));
 
-// responder.use(require('./lib/logger')(':method :status-code :url :date :response-time ms'));
+if (config.LOG_ENABLED) {
+	var format = ':method :status-code :url :date :response-time ms';
+	responder.use(require('./lib/logger')(format));
+}
 
 var db = require('./lib/db');
 
