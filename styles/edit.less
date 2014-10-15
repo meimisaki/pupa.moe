@@ -9,6 +9,9 @@
 		line-height: 20 / 14;
 		border-radius: 4px;
 		border-width: @border-sm;
+		@media (max-width: (@width-sm - 1)) {
+			font-size: @font-md;
+		}
 	}
 	.edit-header {
 		font-size: @font-lg;
