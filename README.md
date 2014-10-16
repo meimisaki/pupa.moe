@@ -32,3 +32,7 @@ A light blog engine for myself
 > server process daemon
 
 > https
+
+> post request rate limiter
+
+> database transaction
