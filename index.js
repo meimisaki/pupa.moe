@@ -32,6 +32,12 @@ if (config.LOG_ENABLED) {
 	responder.use(require('./lib/logger')(format));
 }
 
+var verification = config.WEBMASTERS.VERIFICATION;
+
+responder.get(verification.NAME + '.html', function (req, res, next) {
+	res.send(verification.HTML);
+});
+
 var db = require('./lib/db');
 
 responder.get('autocomplete/:pre', function (req, res, next) {
