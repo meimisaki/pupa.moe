@@ -59,6 +59,34 @@
 			</div>
 		<% } %>
 	</div>
+	<div class="title">CONFIG</div>
+	<div class="row config">
+		<div class="col-4 item-container">
+			<div class="input-container">
+				<input class="content title" type="text" placeholder="TITLE" value="<%= config.title %>" />
+			</div>
+		</div>
+		<div class="col-4 item-container">
+			<div class="input-container">
+				<input class="content signature" type="text" placeholder="SIGNATURE" value="<%= config.signature %>" />
+			</div>
+		</div>
+		<div class="col-4 item-container">
+			<div class="input-container">
+				<input class="content script" type="text" placeholder="GOOGLE ANALYTICS SCRIPT" value="<%= config.script %>" />
+			</div>
+		</div>
+		<div class="col-4 item-container">
+			<div class="input-container">
+				<input class="button content" type="button" value="<%= config.ga == 'true' ? 'DISABLE' : 'ENABLE' %> GA" data-enabled="<%= config.ga %>" />
+			</div>
+		</div>
+		<div class="col-4 item-container">
+			<div class="input-container">
+				<input class="button content" type="submit" value="SUBMIT" />
+			</div>
+		</div>
+	</div>
 	<div class="title">ADMIN</div>
 	<div class="row admin">
 		<div class="col-4 item-container">
