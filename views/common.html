@@ -20,7 +20,7 @@
 		<% } %>
 	</div>
 	<% if (config.ga == "true" && !res.gaDisabled) { %>
-		<script type="text/javascript"><%= config.script %></script>
+		<script type="text/javascript"><%@ config.script %></script>
 	<% } %>
 </body>
 </html>
