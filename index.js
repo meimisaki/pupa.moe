@@ -6,6 +6,7 @@ var path = require('path');
 var each = require('./lib/each');
 var inherit = require('./lib/inherit');
 var extract = require('./lib/extract');
+var camelCase = require('./lib/camel-case');
 
 var config = require('./lib/config');
 
@@ -211,17 +212,28 @@ responder.post('logout', function (req, res, next) {
 	});
 });
 
-responder.post('admin', function (req, res, next) {
-	verifier(req, res, function () {
-		if (!req.verified) {
-			res.statusCode = 401;
-			return res.send();
-		}
-		var client = db();
-		client.patchUser('admin', req.form.fields, function (err) {
-			client.release();
-			if (err) return res.die();
-			res.send();
+each({
+	config: {
+		type: 'config',
+		id: 'global'
+	},
+	admin: {
+		type: 'user',
+		id: 'admin'
+	}
+}, function (val, key) {
+	responder.post(key, function (req, res, next) {
+		verifier(req, res, function () {
+			if (!req.verified) {
+				res.statusCode = 401;
+				return res.send();
+			}
+			var client = db();
+			client[camelCase('patch-' + val.type)](val.id, req.form.fields, function (err) {
+				client.release();
+				if (err) return res.die();
+				res.send();
+			});
 		});
 	});
 });
