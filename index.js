@@ -10,7 +10,10 @@ var camelCase = require('./lib/camel-case');
 
 var config = require('./lib/config');
 
-var gzip = require('./lib/gzip')(config);
+var gzip = require('./lib/gzip')({
+	threshold: config.GZIP_THRESHOLD,
+	types: config.GZIP_TYPES
+});
 
 var Syncher = require('./lib/syncher');
 
