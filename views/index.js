@@ -1,7 +1,7 @@
 function (callback) {
 	var client = this.client;
 	var key = this.req.params.id ? 'category:' + this.req.params.id : '';
-	var query = this.req.parsedUrl.parsedQuery;
+	var query = this.req.parsedQuery;
 	var page = Math.max(0, parseInt(query.page) || 0);
 	var limit = 10;
 	client.selectArticles(key, {

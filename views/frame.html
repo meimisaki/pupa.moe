@@ -64,7 +64,7 @@
 	<div class="main search-container">
 		<div class="row">
 			<form class="col-4 search" action="/" method="GET">
-				<input class="content dropdown autocomplete" name="keyword" type="text" value="<%= req.parsedUrl.parsedQuery.keyword %>" placeholder="SEARCH" autocomplete="off" spellcheck="false" />
+				<input class="content dropdown autocomplete" name="keyword" type="text" value="<%= req.parsedQuery.keyword %>" placeholder="SEARCH" autocomplete="off" spellcheck="false" />
 				<ul class="dropdown-menu"></ul>
 			</form>
 		</div>
