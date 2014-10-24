@@ -31,7 +31,7 @@ A light blog engine for myself
 
 > server process daemon
 
-> https
+> <del>https</del>
 
 > post request rate limiter
 

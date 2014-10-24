@@ -5,6 +5,9 @@ lib/config.js
 .DS_Store
 upload
 
+# secure files
+ssl
+
 # temporary files
 *.log
 *.tmp

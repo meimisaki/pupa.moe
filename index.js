@@ -21,6 +21,9 @@ var Responder = require('./lib/responder');
 
 var responder = new Responder({
 	port: config.PORT,
+	https: config.HTTPS,
+	key: path.join(__dirname, 'ssl/private-key.pem'),
+	cert: path.join(__dirname, 'ssl/certificate.pem'),
 	gzip: gzip
 });
 
