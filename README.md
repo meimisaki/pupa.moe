@@ -5,13 +5,15 @@ A light blog engine for myself
 
 ## Usage
 
-* Install Node.js & redis on your server
+* Install `Node.js>=0.8.0` & `redis>=2.4.0` on your server
 
 * `sudo npm install bower -g`
 
 * `git clone https://github.com/meimisaki/pupa.moe.git && cd pupa.moe && npm install`
 
-* edit lib/config.sample.js and rename it to lib/config.js
+* edit `lib/config.sample.js` and rename it to `lib/config.js`
+
+* copy your `certificate.pem` and `private-key.pem` files to relative `ssl` folder(optional)
 
 * `npm start`
 
@@ -31,8 +33,20 @@ A light blog engine for myself
 
 > server process daemon
 
-> <del>https</del>
-
 > post request rate limiter
 
 > database transaction
+
+## Done
+
+> LRUCache
+
+> html renderer
+
+> sanitize comment html
+
+> request logger
+
+> search autocomplete
+
+> https
