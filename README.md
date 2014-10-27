@@ -25,6 +25,10 @@ A light blog engine for myself
 
 > full text search
 
+> pretty alert/confirm dialog box
+
+> embed video/audio support
+
 > mobile browser compatibility(editor)
 
 > better route implementation
@@ -50,3 +54,5 @@ A light blog engine for myself
 > search autocomplete
 
 > https
+
+> WYSIWYG editor
